@@ -9,12 +9,15 @@ find_package(catkin REQUIRED COMPONENTS gazebo_msgs roscpp geometry_msgs std_srv
 # Declare our catkin package.
 
 #add_message files
-add_message_files(FILES blocks_poses.msg)
-add_message_files(FILES Tracker.msg)
+add_message_files( DIRECTORY msg
+	FILES 
+	blocks_poses.msg
+	Tracker.msg
+)
 
 generate_messages(DEPENDENCIES std_msgs)
 
-catkin_package(CATKIN_DEPENDS message_runtime)
+catkin_package(CATKIN_DEPENDS message_runtime message_generation)
 
 # Specify locations of header files.
 include_directories(include ${catkin_INCLUDE_DIRS})

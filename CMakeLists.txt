@@ -25,6 +25,8 @@ include_directories(include ${catkin_INCLUDE_DIRS})
 # Declare the executable, along with its source files.
 add_executable(blocks_spawner blocks_spawner.cpp)
 add_executable(blocks_poses_publisher blocks_poses_publisher.cpp)
+add_dependencies(blocks_spawner ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(blocks_poses_publisher ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 # Specify libraries against which to link.
 target_link_libraries(blocks_spawner ${catkin_LIBRARIES})
